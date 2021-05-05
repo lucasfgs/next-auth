@@ -1,5 +1,9 @@
 import { AuthContext } from "contexts/AuthContext";
+import { GetServerSideProps } from "next";
+import { parseCookies } from "nookies";
 import { FormEvent, useContext, useState } from "react";
+import { setupAPIClient } from "services/api";
+import { withSSRGuest } from "utils/auth/withSSRGuest";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -33,3 +37,9 @@ export default function Home() {
     </form>
   );
 }
+
+export const getServerSideProps = withSSRGuest(async (ctx) => {
+  return {
+    props: {},
+  };
+});
