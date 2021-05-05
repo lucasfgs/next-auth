@@ -1,8 +1,5 @@
 import { AuthContext } from "contexts/AuthContext";
-import { GetServerSideProps } from "next";
-import { parseCookies } from "nookies";
 import { FormEvent, useContext, useState } from "react";
-import { setupAPIClient } from "services/api";
 import { withSSRGuest } from "utils/auth/withSSRGuest";
 
 export default function Home() {
